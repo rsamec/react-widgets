@@ -1,6 +1,6 @@
 'use strict';
 
-export function font(fontProps) {
+export default function font(fontProps) {
 
 	var style = {};
 	if (fontProps === undefined) return style;
