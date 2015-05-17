@@ -1,0 +1,41 @@
+{
+  "name": "my-component",
+  "version": "0.0.1",
+  "private": true,
+  "description": "react-widgets",
+  "main": "src/Component.js",
+  "author": "Jed Watson",
+  "license": "MIT",
+  "homepage": "https://github.com/JedWatson/react-component-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JedWatson/react-component-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JedWatson/react-component-starter/issues"
+  },
+  "dependencies": {
+    "react": "^0.13.2",
+    "reactify": "^0.17.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "react-component-gulp-tasks": "^0.7.0"
+  },
+  "browser": "src/AutosizeInput.js",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "browserify-shim": {
+    "react": "global:React"
+  },
+  "scripts": {
+    "test": "echo \"no tests yet\" && exit 0"
+  },
+  "keywords": [
+    "react",
+    "react-component"
+  ]
+}
