@@ -1,5 +1,5 @@
 var React = require('react'),
-	WidgetFactory = require('my-component');
+	WidgetFactory = require('react-designer-widgets');
 
 var App = React.createClass({
 	createComponent: function (box) {

@@ -1,9 +1,9 @@
 {
   "name": "react-designer-widgets",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "description": "react-widgets",
-  "main": "dist/my-component.js",
+  "main": "dist/react-designer-widgets.js",
   "author": "Roman Samec (roman.samec2@gmail.com)",
   "license": "MIT",
   "homepage": "https://github.com/rsamec/react-widgets",
