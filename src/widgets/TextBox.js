@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react');
-var styleFont = require('../styles/font');
+import React from 'react';
+import styleFont from '../styles/font';
 
 var TextBox = React.createClass({
 

@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-var styleFont = require('../styles/font');
+import styleFont from '../styles/font';
 
 var Flipper = React.createClass({
     getInitialState: function() {
