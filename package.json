@@ -1,7 +1,7 @@
 {
   "name": "react-designer-widgets",
   "version": "0.0.3",
-  "private": true,
+  "private": false,
   "description": "react-widgets",
   "main": "dist/my-component.js",
   "author": "Roman Samec (roman.samec2@gmail.com)",
