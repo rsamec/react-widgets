@@ -1,9 +1,9 @@
 {
   "name": "react-designer-widgets",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "description": "react-widgets",
-  "main": "dist/react-designer-widgets.js",
+  "main": "src/WidgetFactory.js",
   "author": "Roman Samec (roman.samec2@gmail.com)",
   "license": "MIT",
   "homepage": "https://github.com/rsamec/react-widgets",
@@ -22,7 +22,6 @@
     "gulp": "^3.8.10",
     "react-component-gulp-tasks": "^0.7.0"
   },
-  "browser": "src/AutosizeInput.js",
   "browserify": {
     "transform": [
       "reactify"
