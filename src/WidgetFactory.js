@@ -12,9 +12,13 @@ export default class WidgetFactory {
 			'Flipper': require('./widgets/Flipper'),
 			'JSXBox': require('./widgets/JSXBox')
 		}
-		['Rectangle','Circle', 'Ellipse','Line','Polyline'].each(function(name){
+		var Shapes = require('./widgets/Shapes');
+		
+		var shapeNames = ['Rectangle','Circle', 'Ellipse','Line','Polyline'];
+		for (var i in shapeNames){
+			var name = shapeNames[i];
 			widgets['Shapes.' + name] = Shapes[name];
-		});
+		};
 		
 		this.widgets = widgets;
 	}
