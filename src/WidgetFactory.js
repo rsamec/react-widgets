@@ -2,7 +2,7 @@
 
 export default class WidgetFactory {
 	constructor() {
-		this.widgets = {
+		var widgets = {
 			'TextBoxInput': require('./widgets/TextBoxInput'),
 			'CheckBoxInput': require('./widgets/CheckBoxInput'),
 			'TextBox': require('./widgets/TextBox'),
@@ -12,6 +12,11 @@ export default class WidgetFactory {
 			'Flipper': require('./widgets/Flipper'),
 			'JSXBox': require('./widgets/JSXBox')
 		}
+		['Rectangle','Circle', 'Ellipse','Line','Polyline'].each(function(name){
+			widgets['Shapes.' + name] = Shapes[name];
+		});
+		
+		this.widgets = widgets;
 	}
 
 	getWidgets() {
