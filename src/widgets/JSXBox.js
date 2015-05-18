@@ -1,9 +1,10 @@
 'use strict';
-var React = require('react');
 
-var JSXBox = React.createClass({
+import React from 'react';
 
-    render: function () {
+export default class JSXBox extends React.Component{
+
+    render() {
         var div = React.createFactory('div');
         //empty content
         if (this.props.content === undefined) return div({},'type your code');
@@ -25,5 +26,4 @@ var JSXBox = React.createClass({
             return div({}, err.message);
         }
     }
-});
-module.exports = JSXBox;
+};

@@ -1,11 +1,10 @@
 'use strict';
 
-
 import React from 'react';
 import styleFont from '../styles/font';
 
-var ValueBox = React.createClass({
-    render: function () {
+export default class ValueBox extends React.Component{
+    render () {
 
         var content = !!this.props.content?this.props.content:this.props.emptyValue;
 
@@ -13,5 +12,4 @@ var ValueBox = React.createClass({
             <span style={styleFont(this.props.font)}>{content}</span>
         )
     }
-});
-module.exports = ValueBox;
+}

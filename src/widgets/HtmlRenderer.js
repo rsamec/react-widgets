@@ -1,12 +1,9 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
 
-var HtmlRenderer = React.createClass({
-    componentDidMount () {
-        var el = this.getDOMNode();
-    },
-    render() {
+export default class HtmlRenderer extends React.Component{
+   render() {
         //experimental - columnCount, counterReset
         var style = {};
         if (this.props.columnCount !== undefined) style.WebkitColumnCount=this.props.columnCount;
@@ -15,5 +12,4 @@ var HtmlRenderer = React.createClass({
             <div className="nestedList" style={style} dangerouslySetInnerHTML={{__html: this.props.content}}></div>
         );
     }
-});
-module.exports = HtmlRenderer;
+}

@@ -3,19 +3,8 @@
 import React from 'react';
 import styleFont from '../styles/font';
 
-var TextBox = React.createClass({
-
-    render: function () {
-
-        //var code = JSXTransformer.transform(
-        //    '(function() {' +
-        //    this.props.content +
-        //    '\n})();',
-        //    { harmony: true }
-        //).code;
-        //return React.createElement(eval(code));
-
+export default class TextBox extends React.Component {
+    render() {
         return (<span style={styleFont(this.props.font)}>{this.props.content}</span>);
     }
-});
-module.exports = TextBox;
+}

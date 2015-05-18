@@ -1,10 +1,9 @@
 'use strict';
 
-var React = require('react');
+import React from 'react';
 
-var ImageBox = React.createClass({
-
-    render: function () {
+export default class ImageBox extends React.Component{
+    render() {
         var style = {};
         if (this.props.height!==undefined) style.height = this.props.height;
         if (this.props.width!==undefined) style.width = this.props.width;
@@ -12,5 +11,4 @@ var ImageBox = React.createClass({
             <img src={this.props.url} style={style} width={style.width} height={style.height} />
         )
     }
-});
-module.exports = ImageBox;
+}
