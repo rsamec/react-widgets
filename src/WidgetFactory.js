@@ -1,6 +1,6 @@
 'use strict';
 
-export class WidgetFactory {
+export default class WidgetFactory {
 	constructor() {
 		this.widgets = {
 			'TextBoxInput': require('./widgets/TextBoxInput'),
@@ -10,8 +10,7 @@ export class WidgetFactory {
 			'HtmlBox': require('./widgets/HtmlRenderer'),
 			'ImageBox': require('./widgets/ImageBox'),
 			'Flipper': require('./widgets/Flipper'),
-			'JSXBox': require('./widgets/JSXBox'),
-			'TinyMceEditor': require('./widgets/HtmlRenderer')
+			'JSXBox': require('./widgets/JSXBox')
 		}
 	}
 
