@@ -1,6 +1,6 @@
 {
   "name": "react-designer-widgets",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "description": "react-widgets",
   "main": "lib/WidgetFactory.js",
@@ -28,6 +28,7 @@
       "reactify"
     ]
   },
+  "browser": "lib/WidgetFactory.js",
   "browserify-shim": {
     "react": "global:React"
   },
