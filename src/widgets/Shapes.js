@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import _  from 'underscore';
 
 class SVGComponent extends React.Component {
 	render() {
@@ -55,7 +56,7 @@ class CornerLine extends React.Component {
 		var size = this.props.size || 150;
 		var cornerWidth = this.props.width || 50;
 
-		var height = _.max[this.props.style.height, size];
+		var height =_.max[this.props.style.height, size];
 		var width = _.max[this.props.style.width, size];
 
 		var max = size;
