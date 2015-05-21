@@ -14,7 +14,7 @@ export default class WidgetFactory {
 		}
 		var Shapes = require('./widgets/Shapes');
 		
-		var shapeNames = ['Rectangle','Circle', 'Ellipse','Line','Polyline'];
+		var shapeNames = ['Rectangle','Circle', 'Ellipse','Line','Polyline','CornerLine','CornerBox'];
 		for (var i in shapeNames){
 			var name = shapeNames[i];
 			widgets['Shapes.' + name] = Shapes[name];
