@@ -11,7 +11,7 @@ export default class WidgetFactory {
 			'ImageBox': require('./widgets/ImageBox'),
 			'Flipper': require('./widgets/Flipper'),
 			'JSXBox': require('./widgets/JSXBox'),
-			'PivotTable': require('./widgets/PivotTable')
+			'react-pivot': require('./widgets/PivotTable')
 		}
 		var Shapes = require('./widgets/Shapes');
 		
