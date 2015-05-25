@@ -1,6 +1,6 @@
 {
   "name": "react-designer-widgets",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "description": "react-widgets",
   "main": "lib/WidgetFactory.js",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "react": "^0.13.2",
+    "react-pivot": "^1.11.1",
     "reactify": "^0.17.1",
     "underscore": "^1.8.3"
   },
