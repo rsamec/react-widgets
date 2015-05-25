@@ -10,7 +10,8 @@ export default class WidgetFactory {
 			'HtmlBox': require('./widgets/HtmlRenderer'),
 			'ImageBox': require('./widgets/ImageBox'),
 			'Flipper': require('./widgets/Flipper'),
-			'JSXBox': require('./widgets/JSXBox')
+			'JSXBox': require('./widgets/JSXBox'),
+			'PivotTable': require('./widgets/PivotTable')
 		}
 		var Shapes = require('./widgets/Shapes');
 		
