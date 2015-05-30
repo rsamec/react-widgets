@@ -11,11 +11,10 @@ export default class JSXBox extends React.Component{
         try {
 			var codeToCompile = '(function() {' + this.props.content + '})();' 
             var result = ReactTools.transform(codeToCompile,{harmony: true})
-			var cod = result.code;
-
+			
             //compiled content
             var props = this.props;
-            return eval(code);
+            return eval(result.code);
         }
         catch(err){
             //error content
