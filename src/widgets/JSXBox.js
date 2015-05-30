@@ -9,12 +9,9 @@ export default class JSXBox extends React.Component{
         if (this.props.content === undefined) return div({},'type your code');
 
         try {
-            var code = ReactTools.transform(
-                '(function() {' +
-                this.props.content +
-                '\n})();',
-                {harmony: true}
-            ).code;
+			var codeToCompile = '(function() {' + this.props.content + '})();' 
+            var result = ReactTools.transform(codeToCompile,{harmony: true})
+			var cod = result.code;
 
             //compiled content
             var props = this.props;
