@@ -10,11 +10,14 @@ export default class JSXBox extends React.Component{
 
         try {
 			var codeToCompile = '(function() {' + this.props.content + '})();' 
-            var result = ReactTools.transform(codeToCompile,{harmony: true});
+            var code = ReactTools.transform(codeToCompile,{harmony: true});
+
+			var assignReactCode = 'var React;if (React === undefined){React = _react || _react2;}'
 			
-            //compiled content
-            var props = this.props;
-            return eval(result);
+			//compiled content
+			var props = this.props;
+			return eval(assignReactCode + code);
+          
         }
         catch(err){
             //error content
