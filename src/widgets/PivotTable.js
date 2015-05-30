@@ -1,7 +1,5 @@
-//'use strict';
-
-var React = require('react');
-var ReactPivot = require('react-pivot');
+import React from 'react';
+import ReactPivot from 'react-pivot';
 
 var PivotTable = React.createClass({
 	render() {

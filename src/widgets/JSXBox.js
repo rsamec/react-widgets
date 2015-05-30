@@ -1,6 +1,5 @@
-'use strict';
-
 import React from 'react';
+import ReactTools from 'react-tools';
 
 export default class JSXBox extends React.Component{
 
@@ -10,7 +9,7 @@ export default class JSXBox extends React.Component{
         if (this.props.content === undefined) return div({},'type your code');
 
         try {
-            var code = JSXTransformer.transform(
+            var code = ReactTools.transform(
                 '(function() {' +
                 this.props.content +
                 '\n})();',
