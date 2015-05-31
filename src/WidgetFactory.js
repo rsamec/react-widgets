@@ -9,6 +9,7 @@ export default class WidgetFactory {
 			'ValueBox': require('./widgets/ValueBox'),
 			'HtmlBox': require('./widgets/HtmlRenderer'),
 			'ImageBox': require('./widgets/ImageBox'),
+			'ImagePanel': require('./widgets/ImagePanel'),
 			'Flipper': require('./widgets/Flipper'),
 			'JSXBox': require('./widgets/JSXBox'),
 			'react-pivot': require('./widgets/PivotTable')

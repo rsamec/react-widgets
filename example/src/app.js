@@ -3,16 +3,13 @@ var React = require('react'),
 
 var App = React.createClass({
 	createComponent: function (box) {
-		var widgets = WidgetFactory.getWidgets()
+		var widgets = WidgetFactory.getWidgets();
 		var widget =widgets[box.elementName];
 		if (widget === undefined){
 			return React.DOM.span(null,"Component '" + box.elementName + "' is not register among widgets.")
 		}
 
-		this.applyBinding(box);
-
-		var props = _.omit(box,'style');
-		return React.createElement(widget,props, box.content!== undefined?React.DOM.span(null, box.content):undefined);
+		return React.createElement(widget,box, box.content!== undefined?React.DOM.span(null, box.content):undefined);
 
 	},
 	render: function () {
