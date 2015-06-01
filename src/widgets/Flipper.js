@@ -1,16 +1,17 @@
 import React from 'react';
 import styleFont from '../styles/font';
 
-var Flipper = React.createClass({
-	getInitialState: function() {
-		return {
-			flipped: false
-		};
-	},
-	flip: function() {
-		this.setState({ flipped: !this.state.flipped });
-	},
-	render: function() {
+export default class Flipper extends React.Component {
+	//getInitialState() {
+	//	return {
+	//		flipped: false
+	//	};
+	//}
+	flip() {
+		this.setState({flipped: !this.state.flipped});
+	}
+
+	render() {
 		var fontStyle = styleFont(this.props.font);
 		var style = {};
 		if (this.props.width !== undefined) style['width'] = this.props.width;
@@ -29,18 +30,15 @@ var Flipper = React.createClass({
 			</div>
 		</div>;
 	}
-});
-var Front = React.createClass({
-	render: function() {
+}
+class Front extends React.Component {
+	render() {
 		return <div className="front tile" style={this.props.style}>{this.props.children}</div>;
 	}
-});
-
-var Back = React.createClass({
-	render: function() {
+}
+class Back extends React.Component {
+	render() {
 		return <div className="back tile" style={this.props.style}>{this.props.children}</div>;
 	}
-});
+}
 
-
-module.exports = Flipper;
