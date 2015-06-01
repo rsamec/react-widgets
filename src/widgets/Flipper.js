@@ -23,7 +23,7 @@ export default class Flipper extends React.Component {
 		var backStyle = _.clone(fontStyle);
 		if (this.props.backColor !== undefined) backStyle['backgroundColor'] = this.props.backColor;
 
-		return (<div style={style} className={"flipper-container " + this.props.orientation} onClick={this.flip}>
+		return (<div style={style} className={"flipper-container " + this.props.orientation} onClick={this.flip.bind(this)}>
 			<div className={"flipper" + (this.state.flipped ? " flipped" : "")}>
 				<Front style={frontStyle}>{this.props.front}</Front>
 				<Back  style={backStyle}>{this.props.back}</Back>
