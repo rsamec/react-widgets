@@ -3,11 +3,11 @@ import styleFont from '../styles/font';
 import _ from 'underscore';
 
 export default class Flipper extends React.Component {
-	//getInitialState() {
-	//	return {
-	//		flipped: false
-	//	};
-	//}
+	getInitialState() {
+		return {
+			flipped: false
+		};
+	}
 	flip() {
 		this.setState({flipped: !this.state.flipped});
 	}
