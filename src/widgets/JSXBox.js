@@ -4,7 +4,7 @@ import TangleText from './TangleText';
 import BindToMixin from 'react-binding';
 import {FormattedDate, FormattedTime,FormattedRelative,FormattedNumber,FormattedMessage,FormattedHTMLMessage,IntlMixin} from 'react-intl';
 
-var JSBox = React.createClass({
+var JSXBox = React.createClass({
 	mixins:[IntlMixin],
     render() {
         var div = React.createFactory('div');
