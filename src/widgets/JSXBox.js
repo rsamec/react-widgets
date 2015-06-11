@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactTools from 'react-tools';
+import TangleText from './TangleText';
+import BindToMixin from 'react-binding';
+import {FormattedDate, FormattedTime,FormattedRelative,FormattedNumber,FormattedMessage,FormattedHTMLMessage,IntlMixin} from 'react-intl';
 
-export default class JSXBox extends React.Component{
-
+var JSBox = React.createClass({
+	mixins:[IntlMixin],
     render() {
         var div = React.createFactory('div');
         //empty content
@@ -16,6 +19,7 @@ export default class JSXBox extends React.Component{
 			
 			//compiled content
 			var props = this.props;
+			var self = this;
 			return eval(assignReactCode + code);
           
         }
@@ -24,4 +28,5 @@ export default class JSXBox extends React.Component{
             return div({}, err.message);
         }
     }
-};
+});
+export default JSXBox; 
