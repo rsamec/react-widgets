@@ -1,8 +1,16 @@
-import React from 'react';
-import ReactTools from 'react-tools';
-import TangleText from './TangleText';
-import BindToMixin from 'react-binding';
-import {FormattedDate, FormattedTime,FormattedRelative,FormattedNumber,FormattedMessage,FormattedHTMLMessage,IntlMixin} from 'react-intl';
+var React = require('react');
+var TangleText = require('./TangleText');
+var BindToMixin = require('react-binding');
+
+var ReactIntl = require('react-intl');
+
+var IntlMixin = ReactIntl.IntlMixin;
+var FormattedNumber = ReactIntl.FormattedNumber;
+var FormattedDate = ReactIntl.FormattedDate;
+var FormattedTime = ReactIntl.FormattedTime;
+var FormattedRelative = ReactIntl.FormattedRelative;
+var FormattedMessage = ReactIntl.FormattedMessage;
+var FormattedHTMLMessage = ReactIntl.FormattedHTMLMessage;
 
 var JSXBox = React.createClass({
 	mixins:[IntlMixin],
@@ -12,15 +20,14 @@ var JSXBox = React.createClass({
         if (this.props.content === undefined) return div({},'type your code');
 
         try {
-			var codeToCompile = '(function() {' + this.props.content + '})();' 
-            var code = ReactTools.transform(codeToCompile,{harmony: true});
 
-			var assignReactCode = 'var React;if (React === undefined){React = _react || _react2;}'
+			//var assignReactCode = 'var React;if (React === undefined){React = _react || _react2;}';
 			
 			//compiled content
 			var props = this.props;
 			var self = this;
-			return eval(assignReactCode + code);
+
+			return eval(this.props.code);
           
         }
         catch(err){
