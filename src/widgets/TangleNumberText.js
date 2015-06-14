@@ -1,16 +1,34 @@
-var React = require('react');
+import React from 'react';
 
-var TangleText = React.createClass({
+export default class TangleNumberText extends React.Component {
 	render(){
+		//support for two-way data binding
 		var valueModel = this.props.valueLink;
 		var handleChange = function (value) {
 			valueModel.value = value;
 		};
-		return (<TangleTextEx value={valueModel.value} onChange={handleChange} />);
-	}
-})
 
-var TangleTextEx = React.createClass({
+		//if no valueLink is provided - fallback to text representation of binding object 
+		if (valueModel === undefined) valueModel = {value:JSON.stringify(this.props.value)};
+		
+		var style = {display:'inline'};
+		var className = this.props.className || 'tangle-text';
+		return (
+			<div style={style}>
+				<TangleText value={valueModel.value} onChange={handleChange}
+					min={this.props.min}
+					max={this.props.max}
+					step={this.props.step}
+					className={className}
+					pixelDistance={this.props.pixelDistance}
+					width={this.props.width}    />
+			</div>
+		);
+	}
+}
+
+//Copied and credits to: https://github.com/mapbox/react-tangle
+var TangleText = React.createClass({
 	propTypes: {
 		value: React.PropTypes.number.isRequired,
 		onChange: React.PropTypes.func.isRequired,
@@ -118,25 +136,22 @@ var TangleTextEx = React.createClass({
 		}
 	},
 	render: function() {
-		var style = {webkitAppearance:'none', textAlign:'left',cursor:'col-resize',border:'0px solid',borderBottom:'1px dotted #393939'};
+		var style = {webkitAppearance:'none', textAlign:'left',cursor:'col-resize',border:'0px solid'};
+		if (this.props.width !== undefined) style.width = this.props.width;
 		/* jshint ignore:start */
 		return (
-			<div style={{display:'inline'}}>
-				<input style={style}
-					className={this.props.className}
-					disabled={this.props.disabled}
-					type='text'
-					onChange={this.onChange}
-					onMouseDown={this.onMouseDown}
-					onKeyDown={this.onKeyDown}
-					onMouseUp={this.onMouseUp}
-					onDoubleClick={this.onDoubleClick}
-					onBlur={this.onBlur}
-					value={this.props.format(this.state.value)} />
-			</div>
+			<input style={style}
+				className={this.props.className}
+				disabled={this.props.disabled}
+				type='text'
+				onChange={this.onChange}
+				onMouseDown={this.onMouseDown}
+				onKeyDown={this.onKeyDown}
+				onMouseUp={this.onMouseUp}
+				onDoubleClick={this.onDoubleClick}
+				onBlur={this.onBlur}
+				value={this.props.format(this.state.value)} />
 		);
 		/* jshint ignore:end */
 	}
 });
-
-module.exports = TangleText;

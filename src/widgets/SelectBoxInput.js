@@ -17,7 +17,7 @@ export default class SelectBoxInput extends React.Component{
 		if (valueModel === undefined) valueModel = {value:defaultValue};
 
 		var selectedOptions = valueModel.value;
-		var value = selectedOptions !== undefined && selectedOptions.length !==0 ? _.map(selectedOptions,function(opt){return opt.value}).join(delimiter):undefined
+		var value = selectedOptions !== undefined && selectedOptions.length !==0 ? _.map(selectedOptions,function(opt){return opt.value}).join(delimiter):undefined;
 
 		var handleChange = function (newValue, selectedOptions) {
 			valueModel.value = selectedOptions;

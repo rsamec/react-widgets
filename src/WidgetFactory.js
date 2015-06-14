@@ -12,7 +12,11 @@ export default class WidgetFactory {
 			'ImagePanel': require('./widgets/ImagePanel'),
 			'Flipper': require('./widgets/Flipper'),
 			'JSXBox': require('./widgets/JSXBox'),
-			'react-pivot': require('./widgets/PivotTable')
+			'react-pivot': require('./widgets/PivotTable'),
+			'TangleBoolText':require('./widgets/TangleBoolText'),
+			'TangleNumberText':require('./widgets/TangleBoolText'),
+			'SelectBoxInput':require('./widgets/SelectBoxInput')
+			
 		}
 		var Shapes = require('./widgets/Shapes');
 		

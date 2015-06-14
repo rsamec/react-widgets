@@ -1,9 +1,12 @@
+'use strict';
+
 var React = require('react');
-var TangleText = require('./TangleText');
 var BindToMixin = require('react-binding');
 
-var ReactIntl = require('react-intl');
+var TangleNumberText = require('./TangleNumberText');
+var TangleBoolText = require('./TangleBoolText');
 
+var ReactIntl = require('react-intl');
 var IntlMixin = ReactIntl.IntlMixin;
 var FormattedNumber = ReactIntl.FormattedNumber;
 var FormattedDate = ReactIntl.FormattedDate;
@@ -12,28 +15,38 @@ var FormattedRelative = ReactIntl.FormattedRelative;
 var FormattedMessage = ReactIntl.FormattedMessage;
 var FormattedHTMLMessage = ReactIntl.FormattedHTMLMessage;
 
+//shortcuts
+var TangleText = TangleNumberText;
+var BoolText = TangleBoolText;
+
 var JSXBox = React.createClass({
 	mixins:[IntlMixin],
-    render() {
-        var div = React.createFactory('div');
-        //empty content
-        if (this.props.content === undefined) return div({},'type your code');
+	shouldComponentUpdate(){
+		return true;
+	},
+	render: function () {
+		var div = React.createFactory('div');
+		//empty content
+		if (this.props.content === undefined) return div({},'type your code');
 
-        try {
+		try {
 
-			//var assignReactCode = 'var React;if (React === undefined){React = _react || _react2;}';
-			
+			//var code = JSXTransformer.transform(
+			//    '(function() {' +
+			//    this.props.content +
+			//    '\n})();',
+			//    {harmony: true}
+			//).code;
+
 			//compiled content
 			var props = this.props;
 			var self = this;
-
-			return eval(this.props.code);
-          
-        }
-        catch(err){
-            //error content
-            return div({}, err.message);
-        }
-    }
+			return div({},eval(this.props.code));
+		}
+		catch(err){
+			//error content
+			return div({}, err.message);
+		}
+	}
 });
-export default JSXBox; 
+module.exports = JSXBox;
