@@ -2,7 +2,7 @@
 
 var React = require('react');
 var BindToMixin = require('react-binding');
-
+var chainedFunction = require('../utils/createChainedFunction');
 var TangleNumberText = require('./TangleNumberText');
 var TangleBoolText = require('./TangleBoolText');
 
@@ -18,6 +18,7 @@ var FormattedHTMLMessage = ReactIntl.FormattedHTMLMessage;
 //shortcuts
 var TangleText = TangleNumberText;
 var BoolText = TangleBoolText;
+
 
 var JSXBox = React.createClass({
 	mixins:[IntlMixin],
