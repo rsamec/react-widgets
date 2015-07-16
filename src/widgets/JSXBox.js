@@ -19,6 +19,7 @@ var FormattedHTMLMessage = ReactIntl.FormattedHTMLMessage;
 var TangleText = TangleNumberText;
 var BoolText = TangleBoolText;
 
+var _ = require('underscore');
 
 var JSXBox = React.createClass({
 	mixins:[IntlMixin],
