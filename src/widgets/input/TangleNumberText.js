@@ -11,15 +11,16 @@ export default class TangleNumberText extends React.Component {
 		//if no valueLink is provided - fallback to text representation of binding object 
 		if (valueModel === undefined) valueModel = {value:JSON.stringify(this.props.value)};
 		
-		var style = {display:'inline'};
-		var className = this.props.className || 'tangle-text';
+		
+		var style = {display:'inline',color:'darkblue',borderBottom: '1px dashed black !important'};
+		
 		return (
 			<div style={style}>
-				<TangleText value={valueModel.value} onChange={handleChange}
+				<TangleText value={valueModel.value || 0} onChange={handleChange}
 					min={this.props.min}
 					max={this.props.max}
 					step={this.props.step}
-					className={className}
+					className={this.props.className}
 					pixelDistance={this.props.pixelDistance}
 					width={this.props.width}    />
 			</div>
@@ -58,7 +59,8 @@ var TangleText = React.createClass({
 		this.setState({ value: nextProps.value });
 	},
 	getInitialState: function() {
-		return { value: this.props.value };
+		return { value: this.props.value || 0 };
+		
 	},
 	bounds: function(num) {
 		num = Math.max(num, this.props.min);
@@ -137,6 +139,7 @@ var TangleText = React.createClass({
 	},
 	render: function() {
 		var style = {webkitAppearance:'none', textAlign:'left',cursor:'col-resize',border:'0px solid'};
+		//var style = {display:'inline', color:'darkblue',borderBottom: '1px dashed black'};
 		if (this.props.width !== undefined) style.width = this.props.width;
 		/* jshint ignore:start */
 		return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class HtmlRenderer extends React.Component{
+export default class HtmlBox extends React.Component{
    render() {
         //experimental - columnCount, counterReset
         var style = {};

@@ -1,12 +1,30 @@
-React Component Starter
+React widgets
 =======================
 
-__COMPONENT DESCRIPTION GOES HERE__
+React basic widgets.
 
++   Input
+	+	TextBoxInput
+	+	CheckBoxInput
+	+	SelectBoxInput
+	+	TangleBoolText,
+	+	TangleNumberText
++ 	Rendering
+	+	TextBox
+	+	HtmlBox
+	+	JSXBox
+	+	ValueBox
++	Others
+	+	ImageBox
+	+	ImagePanel
+	+	Flipper
+	+	PivotTable
+	
+	
 
 ## Demo & Examples
 
-Live demo: __LINK TO LIVE DEMO__
+[Live demo](http://rsamec.github.io/react-widgets/)
 
 To build the examples locally, run:
 
@@ -20,34 +38,34 @@ Then open [`localhost:8000`](http://localhost:8000) in a browser.
 
 ## Installation
 
-The easiest way to use My-Component is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
+The easiest way to use this component is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), [Webpack](http://webpack.github.io/), etc).
 
-You can also use the standalone build by including `dist/my-component.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable.
+You can also use the standalone build by including `dist/react-widgets.js` in your page. If you use this, make sure you have already included React, and it is available as a global variable.
 
 ```
-npm install my-component --save
+npm install react-designer-widgets --save
 ```
 
 
 ## Usage
 
-__EXPLAIN USAGE HERE__
-
 ```
-var MyComponent = require('my-component');
+import {TextBox,HtmlBox,JSXBox,ValueBox, CheckBoxInput,TextBoxInput,SelectBoxInput} from 'react-designer-widgets';
 
-<MyComponent>Example</MyComponent>
+
+
+//TODO: add examples
 ```
 
 ### Properties
 
-* __DOCUMENT PROPERTIES HERE__
+See the demo.
 
 ### Notes
 
-__ADDITIONAL USAGE NOTES__
+
 
 ### License
 
-MIT. Copyright (c) 2014 Jed Watson.
+MIT. Copyright (c) 2015 Roman Samec
 

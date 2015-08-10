@@ -3,8 +3,8 @@
 var React = require('react');
 var BindToMixin = require('react-binding');
 var chainedFunction = require('../utils/createChainedFunction');
-var TangleNumberText = require('./TangleNumberText');
-var TangleBoolText = require('./TangleBoolText');
+var TangleNumberText = require('./input/TangleNumberText');
+var TangleBoolText = require('./input/TangleBoolText');
 
 var ReactIntl = require('react-intl');
 var IntlMixin = ReactIntl.IntlMixin;
@@ -21,34 +21,24 @@ var BoolText = TangleBoolText;
 
 var _ = require('underscore');
 
-var JSXBox = React.createClass({
-	mixins:[IntlMixin],
-	shouldComponentUpdate(){
+export default class JSXBox extends React.Component {
+	shouldComponentUpdate() {
 		return true;
-	},
-	render: function () {
-		var div = React.createFactory('div');
+	}
+	render(){
 		//empty content
-		if (this.props.content === undefined) return div({},'type your code');
+		if (this.props.content === undefined || this.props.content.compiled === undefined) return (React.createElement('span',{}, 'empty code'));
 
 		try {
-
-			//var code = JSXTransformer.transform(
-			//    '(function() {' +
-			//    this.props.content +
-			//    '\n})();',
-			//    {harmony: true}
-			//).code;
-
-			//compiled content
-			var props = this.props;
+			
 			var self = this;
-			return div({},eval(this.props.code));
+			var input = this.props.input;
+			var output = this.props.output;
+			return (React.createElement('div',{}, eval(this.props.content.compiled)));
 		}
-		catch(err){
+		catch (err) {
 			//error content
-			return div({}, err.message);
+			return (React.createElement('span',{}, err.message));
 		}
 	}
-});
-module.exports = JSXBox;
+}

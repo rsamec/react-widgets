@@ -17,11 +17,10 @@ export default class TangleBoolText extends React.Component {
 		//if no valueLink is provided - fallback to false
 		var component = valueModel !== undefined && valueModel.value?trueComponent:falseComponent;
 		
-		var className = this.props.className || 'tangle-text';
-		var style = {display:'inline'};
+		var style = {display:'inline', color:'darkblue',borderBottom: '1px dashed black'};
 		
 		return (
-			<div style={style} className={className} onClick={handleChange}>
+			<div style={style} onClick={handleChange}>
                 {component}
 			</div>
 		);

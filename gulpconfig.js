@@ -2,7 +2,7 @@
  * This file controls the behaviour of the build tasks in gulpfile.js
  */
 
-var COMPONENT_NAME = 'WidgetFactory';
+var COMPONENT_NAME = 'Widgets';
 
 // Read the package.json to detect the package name and dependencies
 var pkg = JSON.parse(require('fs').readFileSync('./package.json'));
