@@ -6,13 +6,13 @@ export default {
 	TextBoxInput: _.extend(require('./widgets/input/TextBoxInput'), {
 		metaData: {
 			props: {
-				value: {Mode: 'TwoWay'},
+				value: {mode: 'TwoWay'},
 				placeholder: '',
 				label: 'your label'
 			},
 			settings: {
 				fields: {
-					value: {type: 'bindingEditor', settings: {editing: false}}
+					value: {type: 'bindingEditor', settings: {editing: false}},
 				}
 			}
 		}
@@ -20,7 +20,7 @@ export default {
 	CheckBoxInput: _.extend(require('./widgets/input/CheckBoxInput'), {
 		metaData: {
 			props: {
-				checked: {Mode: 'TwoWay'},
+				checked: {mode: 'TwoWay'},
 				label: 'your label'
 			},
 			settings: {
@@ -33,7 +33,7 @@ export default {
 	TangleBoolText: _.extend(require('./widgets/input/TangleBoolText'), {
 		metaData: {
 			props: {
-				value: {Mode: 'TwoWay'},
+				value: {mode: 'TwoWay'},
 				trueText: 'true condition',
 				falseText: 'false condition'
 			},
@@ -47,8 +47,7 @@ export default {
 	TangleNumberText: _.extend(require('./widgets/input/TangleNumberText'), {
 		metaData: {
 			props: {
-				value: {Mode: 'TwoWay'},
-				defaultValue: false,
+				value: {mode: 'TwoWay'},
 				min: 0,
 				max: 100,
 				step: 1,
@@ -57,7 +56,12 @@ export default {
 			},
 			settings: {
 				fields: {
-					value: {type: 'bindingEditor', settings: {editing: false}}
+					value: {type: 'bindingEditor', settings: {editing: false}},
+					min:{type:'number'},
+					max:{type:'number'},
+					step:{type:'number'},
+					width:{type:'number'},
+					pixelDistance:{type:'number'}
 				}
 			}
 		}
@@ -65,20 +69,15 @@ export default {
 	SelectBoxInput: _.extend(require('./widgets/input/SelectBoxInput'), {
 		metaData: {
 			props: {
-				selectedItems: {
-					Path: '',
-					Mode: 'TwoWay'
-				},
-				options: {
-					Path: '',
-					Mode: 'OneWay'
-				},
+				selectedItems: {mode: 'TwoWay'},
+				options: undefined,
 				multi: false
 			},
 			settings: {
 				fields: {
 					selectedItems: {type: 'bindingEditor', settings: {editing: false}},
-					options: {type: 'bindingEditor', settings: {editing: false}}
+					options: {type: 'bindingEditor', settings: {editing: false}},
+					multi:{type:'boolean'}
 				}
 			}
 		}
@@ -87,13 +86,12 @@ export default {
 		metaData: {
 			props: {
 				content: 'type your text',
-				font: {
-					color: '#000000'
-				}
+				font: undefined
 			},
 			settings: {
 				fields: {
-					content: {type: 'textEditor'}
+					content: {type: 'textEditor'},
+					font:{type:'fontEditor'}
 				}
 			}
 		}
@@ -101,13 +99,14 @@ export default {
 	ValueBox: _.extend(require('./widgets/ValueBox'), {
 		metaData: {
 			props: {
-				content: {},
+				content: undefined,
 				emptyValue: '---',
-				font: {}
+				font:undefined
 			},
 			settings: {
 				fields: {
-					content: {type: 'bindingEditor', settings: {editing: false}}
+					content: {type: 'bindingEditor', settings: {editing: false}},
+					font:{type:'fontEditor'}
 				}
 			}
 
@@ -117,8 +116,17 @@ export default {
 		metaData: {
 			props: {
 				content: 'type your content',
-				columnCount: 0,
-				counterReset: 0
+				columnCount: undefined,
+				counterReset: undefined,
+				font:undefined
+			},
+			settings: {
+				fields: {
+					content: {type: 'htmlEditor'},
+					columnCount:{type:'number'},
+					counterReset:{type:'number'},
+					font:{type:'fontEditor'}
+				}
 			}
 		}
 	}),
@@ -129,16 +137,16 @@ export default {
 					code: 'return (<div>type your code</div>)',
 					compiled: '(function(){return React.createElement("div",null,"type your code")})();'
 				},
-				input: {},
-				output: {Mode: 'TwoWay'},
-				locales: {}
+				input: undefined,
+				output: {mode: 'TwoWay'},
+				font:undefined
 			},
 			settings: {
 				fields: {
 					content: {type: 'codeEditor'},
 					input: {type: 'bindingEditor', settings: {editing: false}},
 					output: {type: 'bindingEditor', settings: {editing: false}},
-					locales: {type: 'bindingEditor', settings: {editing: false}}
+					font:{type:'fontEditor'}
 				}
 			}
 		}
@@ -161,7 +169,7 @@ export default {
 					bottom:5,
 					right:5
 				},
-				padding:{}
+				padding:undefined
 			}
 		}
 	}),
@@ -203,10 +211,16 @@ export default {
 						right:5
 					},
 					padding:{}
-				}
+				},
+				font:undefined
 			},
 			settings: {
 				fields: {
+					width:{type:'number'},
+					height:{type:'number'},
+					padding:{type:'boxSizeEditor'},
+					margin:{type:'boxSizeEditor'},
+					border:{type:'borderEditor'},
 					imageAlign: {
 						type: 'select',
 						settings: {options: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight']}
@@ -215,10 +229,13 @@ export default {
 						fields: {
 							padding:{type:'boxSizeEditor'},
 							margin:{type:'boxSizeEditor'},
-							border:{type:'borderEditor'}
+							border:{type:'borderEditor'},
+							width:{type:'number'},
+							height:{type:'number'}
 						}
 					},
-					bgColor: {type: 'colorPicker'}
+					bgColor: {type: 'colorPicker'},
+					font:{type:'fontEditor'}
 				}
 			}
 		}
@@ -226,12 +243,8 @@ export default {
 	Pivot:  _.extend(require('./widgets/PivotTable'), {
 		metaData: {
 			props: {
-				rows:{
-					Path:''
-				},
-				dimensions:{
-					Path:''
-				},
+				rows:undefined,
+				dimensions:undefined,
 				calculations:{
 					code:"return [{title: 'Count',	value: 'count',className: 'alignRight'}];"
 				},
@@ -267,16 +280,18 @@ export default {
 				front:{
 					bgColor:'#19489E',
 					content:'type front text',
-					font:{}
+					font:undefined
 				},
 				back:{
 					bgColor:'#9E1919',
 					content:'type back text',
-					font:{}
+					font:undefined
 				}
 			},
 			settings: {
 				fields: {
+					width:{type:'number'},
+					height:{type:'number'},
 					orientation: {
 						type: 'select',settings:{options:['horizontal','vertical']}
 					},

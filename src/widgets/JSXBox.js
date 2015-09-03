@@ -1,10 +1,13 @@
 'use strict';
 
+import styleFont from '../styles/font';
 var React = require('react');
 var BindToMixin = require('react-binding');
 var chainedFunction = require('../utils/createChainedFunction');
 var TangleNumberText = require('./input/TangleNumberText');
 var TangleBoolText = require('./input/TangleBoolText');
+
+
 
 var ReactIntl = require('react-intl');
 var IntlMixin = ReactIntl.IntlMixin;
@@ -34,7 +37,7 @@ export default class JSXBox extends React.Component {
 			var self = this;
 			var input = this.props.input;
 			var output = this.props.output;
-			return (React.createElement('div',{}, eval(this.props.content.compiled)));
+			return (React.createElement('div',{style:styleFont(this.props.font)}, eval(this.props.content.compiled)));
 		}
 		catch (err) {
 			//error content

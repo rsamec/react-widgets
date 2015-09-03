@@ -7,8 +7,8 @@ var PivotTable = React.createClass({
 		var dataBinder = this.props.dataBinder;
 
 
-		var rows = dataBinder === undefined?this.props.rows:dataBinder.getValue(this.props.rows.Path);
-		var dimensions = dataBinder === undefined?this.props.dimensions:dataBinder.getValue(this.props.dimensions.Path);
+		var rows = dataBinder === undefined?this.props.rows:dataBinder.getValue(this.props.rows.path);
+		var dimensions = dataBinder === undefined?this.props.dimensions:dataBinder.getValue(this.props.dimensions.path);
 
 		if (rows === undefined) return <span>no data available</span>
 		

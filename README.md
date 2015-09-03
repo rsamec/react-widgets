@@ -17,8 +17,8 @@ React basic widgets.
 +	Others
 	+	ImageBox
 	+	ImagePanel
-	+	Flipper
-	+	PivotTable
+	+	Flipper - inspired by [this example](https://www.codementor.io/reactjs/tutorial/building-a-flipper-using-react-js-and-less-css) 
+	+	PivotTable - wrapper - using [react-pivot](https://github.com/davidguttman/react-pivot)
 	
 	
 
@@ -59,7 +59,7 @@ import {TextBox,HtmlBox,JSXBox,ValueBox, CheckBoxInput,TextBoxInput,SelectBoxInp
 
 ### Properties
 
-See the demo.
+See the live demo above.
 
 ### Notes
 

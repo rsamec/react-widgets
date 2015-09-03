@@ -4,45 +4,12 @@ import {TabbedArea, TabPane} from 'react-bootstrap';
 import BindToMixin from 'react-binding';
 import _ from 'lodash';
 
+
 import Widgets from 'react-designer-widgets';
+import WidgetRenderer from './WidgetRenderer.js';
+
 //import {TextBox,HtmlBox,JSXBox,ValueBox, CheckBoxInput,TextBoxInput,SelectBoxInput} from 'react-designer-widgets';
 
-var WidgetRenderer = React.createClass({
-	mixins: [BindToMixin],
-	applyBinding(box, dataContext){
-		for (var propName in box) {
-			var prop = box[propName];
-
-			if (_.isObject(prop) && prop.Path !== undefined) {
-				if (prop.Mode === 'TwoWay') {
-					//two-way binding
-					var converter;
-					//if (!!prop.Converter) {
-					//	converter = new numberConverter();
-					//}
-
-					box.valueLink = converter !== undefined ? this.bindTo(dataContext, prop.Path, converter) : this.bindTo(dataContext, prop.Path);
-
-					//box.value = undefined;
-
-				}
-				else {
-					//one-way binding
-					box[propName] = this.bindTo(dataContext, prop.Path).value;
-					//box[propName] = dataBinder.value[prop.Path];
-				}
-			}
-		}
-	},
-	render(){
-		var value = _.cloneDeep(this.props.value);
-		if (this.props.dataBinder !== undefined) this.applyBinding(value, this.props.dataBinder);
-
-		var widget = this.props.widget;
-		var component = React.createElement(widget, value, value.content !== undefined ? React.DOM.div({dangerouslySetInnerHTML: {__html: value.content}}) : null);
-		return (<div>{component}</div>);
-	}
-});
 
 class WidgetExample extends React.Component {
 	constructor(props) {
@@ -52,10 +19,11 @@ class WidgetExample extends React.Component {
 
 	widgetPropsChanged(value) {
 		this.setState({widgetProps: value});
+
 	}
 
 	render() {
-		var widget = <WidgetRenderer widget={this.props.widget} value={this.state.widgetProps}
+		var widget = <WidgetRenderer widget={this.props.widget} node={{props:this.state.widgetProps}}
 									 dataBinder={this.props.dataBinder}/>;
 
 		//var widget = React.createElement(this.props.widget, this.state.widgetProps);
@@ -83,7 +51,7 @@ var App = React.createClass({
 				lastName: 'Smith',
 				options: [{value: 'one', label: 'One'},
 					{value: 'two', label: 'Two'}],
-				pivot:{
+				pivot: {
 					"rows": [
 						{
 							"firstName": "Francisco",
@@ -888,42 +856,59 @@ var App = React.createClass({
 		var dataBinder = this.bindToState('data');
 		return (
 			<TabbedArea defaultActiveKey={1}>
-				<TabPane eventKey={1} tab='TextBox'>
-					<WidgetExample widget={Widgets.TextBox}/>
-				</TabPane>
-				<TabPane eventKey={2} tab='HtmlBox'>
-					<WidgetExample widget={Widgets.HtmlBox}/>
-				</TabPane> 
-				<TabPane eventKey={3} tab='JSXBox'>
-					<WidgetExample widget={Widgets.JSXBox} dataBinder={dataBinder}/>
-				</TabPane>
-				<TabPane eventKey={4} tab='ValueBox'>
-					<WidgetExample widget={Widgets.ValueBox} dataBinder={dataBinder}/>
-				</TabPane>
-				<TabPane eventKey={5} tab='Inputs'>
-					<WidgetExample widget={Widgets.TextBoxInput} dataBinder={dataBinder}/>
-					<WidgetExample widget={Widgets.CheckBoxInput} dataBinder={dataBinder}/>
-					<WidgetExample widget={Widgets.SelectBoxInput} dataBinder={dataBinder}/>
-					{JSON.stringify(this.state.data, null, 2)}
-				</TabPane>
-				<TabPane eventKey={6} tab='ImageBox'>
-					<WidgetExample widget={Widgets.ImageBox}/>
-				</TabPane>
-				<TabPane eventKey={7} tab='ImagePanel'>
-					<WidgetExample widget={Widgets.ImagePanel}/>
-				</TabPane>
-				<TabPane eventKey={8} tab='Tangle texts'>
-					<WidgetExample widget={Widgets.TangleBoolText} dataBinder={dataBinder}/>
-					<WidgetExample widget={Widgets.TangleNumberText} dataBinder={dataBinder}/>
-					{JSON.stringify(this.state.data, null, 2)}
-				</TabPane>
-				<TabPane eventKey={9} tab='Pivot'>
-					<WidgetExample widget={Widgets.Pivot} dataBinder={dataBinder}/>
-				</TabPane>
-				<TabPane eventKey={10} tab='Flipper'>
-					<WidgetExample widget={Widgets.Flipper} />
-				</TabPane>
+				<TabPane eventKey={1} tab='Rendering text'>
 
+					<TabbedArea defaultActiveKey={1}>
+						<TabPane eventKey={1} tab='TextBox'>
+							<WidgetExample widget={Widgets.TextBox}/>
+						</TabPane>
+						<TabPane eventKey={2} tab='HtmlBox'>
+							<WidgetExample widget={Widgets.HtmlBox}/>
+						</TabPane>
+						<TabPane eventKey={3} tab='JSXBox'>
+							<WidgetExample widget={Widgets.JSXBox} dataBinder={dataBinder}/>
+						</TabPane>
+						<TabPane eventKey={4} tab='ValueBox'>
+							<WidgetExample widget={Widgets.ValueBox} dataBinder={dataBinder}/>
+						</TabPane>
+					</TabbedArea>
+				</TabPane>
+				<TabPane eventKey={2} tab='Input controls'>
+					<TabbedArea defaultActiveKey={1}>
+						<TabPane eventKey={1} tab='TextBoxInput'>
+							<WidgetExample widget={Widgets.TextBoxInput} dataBinder={dataBinder}/>
+						</TabPane>
+						<TabPane eventKey={2} tab='CheckBoxInput'>
+							<WidgetExample widget={Widgets.CheckBoxInput} dataBinder={dataBinder}/>
+						</TabPane>
+						<TabPane eventKey={3} tab='SelectBoxInput'>
+							<WidgetExample widget={Widgets.SelectBoxInput} dataBinder={dataBinder}/>
+						</TabPane>
+						<TabPane eventKey={4} tab='TangleBoolText'>
+							<WidgetExample widget={Widgets.TangleBoolText} dataBinder={dataBinder}/>
+						</TabPane>
+						<TabPane eventKey={5} tab='TangleNumberText'>
+							<WidgetExample widget={Widgets.TangleNumberText} dataBinder={dataBinder}/>
+						</TabPane>
+					</TabbedArea>
+				</TabPane>
+				<TabPane eventKey={3} tab='Compound controls'>
+					<TabbedArea defaultActiveKey={1}>
+						<TabPane eventKey={1} tab='ImagePanel'>
+							<WidgetExample widget={Widgets.ImagePanel}/>
+						</TabPane>
+						<TabPane eventKey={2} tab='ImageBox'>
+							<WidgetExample widget={Widgets.ImageBox}/>
+						</TabPane>
+
+						<TabPane eventKey={3} tab='Pivot'>
+							<WidgetExample widget={Widgets.Pivot} dataBinder={dataBinder}/>
+						</TabPane>
+						<TabPane eventKey={4} tab='Flipper'>
+							<WidgetExample widget={Widgets.Flipper}/>
+						</TabPane>
+					</TabbedArea>
+				</TabPane>
 			</TabbedArea>
 
 		)

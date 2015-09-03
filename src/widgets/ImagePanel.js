@@ -1,8 +1,9 @@
 import React from 'react';
+import styleFont from '../styles/font';
 
 export default class ImagePanel extends React.Component{
 	render() {
-		var style = {};
+		var style = styleFont(this.props.font);
 		//margin
 		var size = this.props.margin || {};
 		style.marginTop = size.top;
