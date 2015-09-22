@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import _ from 'lodash';
 
 const defaultImageUrl = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==";
 

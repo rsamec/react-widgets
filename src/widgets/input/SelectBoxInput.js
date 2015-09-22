@@ -1,6 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
-import _ from 'underscore';
+import _ from 'lodash';
 
 export default class SelectBoxInput extends React.Component{
 	render () {

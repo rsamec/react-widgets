@@ -1,6 +1,6 @@
 import React from 'react';
 import styleFont from '../styles/font';
-import _ from 'underscore';
+import _ from 'lodash';
 
 export default class Flipper extends React.Component {
 	constructor(props) {
