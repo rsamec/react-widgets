@@ -1,6 +1,6 @@
 {
   "name": "react-designer-widgets",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "private": false,
   "description": "react-widgets",
   "main": "lib/Widgets.js",
@@ -15,6 +15,7 @@
     "url": "https://github.com/rsamec/react-widgets/issues"
   },
   "dependencies": {
+    "lodash": "^3.10.1",
     "react": "^0.13.3",
     "react-pivot": "^1.12.0",
     "react-select": "^0.6.1",

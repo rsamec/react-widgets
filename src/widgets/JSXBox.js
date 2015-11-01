@@ -1,4 +1,5 @@
 import styleFont from '../styles/font';
+var _ = require('lodash');
 var React = require('react');
 
 export default class JSXBox extends React.Component {
@@ -10,7 +11,7 @@ export default class JSXBox extends React.Component {
 		if (this.props.content === undefined || this.props.content.compiled === undefined) return (React.createElement('span',{}, 'empty code'));
 
 		try {
-			
+			var _lodash = _;
 			var self = this;
 			var input = this.props.input;
 			var output = this.props.output;
