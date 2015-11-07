@@ -154,22 +154,28 @@ export default {
 	ImageBox: _.extend(require('./widgets/ImageBox'), {
 		metaData: {
 			props: {
+				width:undefined,
+				height:undefined,
 				url: defaultImageUrl,
-				width: 100,
-				height: 100,
 				border:{
-					width: 2,
-					radius: 20,
+					width: undefined,
+					radius: undefined,
 					color:'#000000',
 					style:'solid'
 				},
-				margin: {
-					top:5,
-					left:5,
-					bottom:5,
-					right:5
-				},
-				padding:undefined
+				objectFit:'fill',
+				clipPath:undefined
+			},
+			settings: {
+				fields: {
+					width:{type:'number'},
+					height:{type:'number'},
+					border:{type:'borderEditor'},
+					objectFit: {
+						type: 'select',
+						settings: {options: ['cover', 'fill', 'contain']}
+					}
+				}
 			}
 		}
 	}),
