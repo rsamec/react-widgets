@@ -1,4 +1,5 @@
 import React from 'react';
+import formatNumber from '../../utils/formatNumber.js';
 
 export default class TangleNumberText extends React.Component {
 	render(){
@@ -11,9 +12,22 @@ export default class TangleNumberText extends React.Component {
 		//if no valueLink is provided - fallback to text representation of binding object 
 		if (valueModel === undefined) valueModel = {value:JSON.stringify(this.props.value)};
 		
-		
+		var step = this.props.step;
 		var style = {display:'inline',color:'darkblue',borderBottom: '1px dashed black !important'};
-		
+		var format = function(value){
+			if (value === undefined) return value;
+			var fractionDigits = 0;
+			if (step !== undefined) {
+				var stepNumber = parse(step);
+				var fractionDigits = (stepNumber < 1) ? Math.ceil(Math.log10(1 /stepNumber )) : 0;
+			}
+			return formatNumber(parse(value),fractionDigits, 3," ",",");
+		};
+		var parse = function(value){
+			if (value === undefined) return undefined;
+			if (isNaN(value)) return parseFloat(value.replace(",","."));
+			return value;
+		}
 		return (
 			<div style={style}>
 				<TangleText value={valueModel.value || 0} onChange={handleChange}
@@ -22,7 +36,9 @@ export default class TangleNumberText extends React.Component {
 					step={this.props.step}
 					className={this.props.className}
 					pixelDistance={this.props.pixelDistance}
-					width={this.props.width}    />
+					width={this.props.width} 
+					format= {format}
+					onInput = {parse}/>
 			</div>
 		);
 	}
@@ -142,6 +158,8 @@ var TangleText = React.createClass({
 		//var style = {display:'inline', color:'darkblue',borderBottom: '1px dashed black'};
 		if (this.props.width !== undefined) style.width = this.props.width;
 		/* jshint ignore:start */
+		var step = this.props.step || 1;
+		
 		return (
 			<input style={style}
 				className={this.props.className}
@@ -153,7 +171,8 @@ var TangleText = React.createClass({
 				onMouseUp={this.onMouseUp}
 				onDoubleClick={this.onDoubleClick}
 				onBlur={this.onBlur}
-				value={this.props.format(this.state.value)} />
+				value={this.props.format(this.state.value)}
+				step = {step}/>
 		);
 		/* jshint ignore:end */
 	}

@@ -90,7 +90,7 @@ export default {
 			},
 			settings: {
 				fields: {
-					content: {type: 'textEditor'},
+					content: {type: 'string'},
 					font:{type:'fontEditor'}
 				}
 			}

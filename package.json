@@ -1,6 +1,6 @@
 {
   "name": "react-designer-widgets",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "private": false,
   "description": "react-widgets",
   "main": "lib/Widgets.js",
