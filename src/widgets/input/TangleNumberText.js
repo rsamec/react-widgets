@@ -19,7 +19,7 @@ export default class TangleNumberText extends React.Component {
 			var fractionDigits = 0;
 			if (step !== undefined) {
 				var stepNumber = parse(step);
-				var fractionDigits = (stepNumber < 1) ? Math.ceil(Math.log10(1 /stepNumber )) : 0;
+				var fractionDigits = (stepNumber < 1) ? Math.ceil(Math.log(1 /stepNumber )/Math.log(10)) : 0;
 			}
 			return formatNumber(parse(value),fractionDigits, 3," ",",");
 		};
