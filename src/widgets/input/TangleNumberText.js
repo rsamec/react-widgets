@@ -27,9 +27,12 @@ export default class TangleNumberText extends React.Component {
 			if (value === undefined) return undefined;
 			if (isNaN(value)) return parseFloat(value.replace(",","."));
 			return value;
-		}
+		};
+		
+		var tooltip = this.props.tooltip;
+		var className = !!this.props.tooltip?"tangleTooltip":undefined;
 		return (
-			<div style={style}>
+			<div style={style} title={tooltip} className={className}>
 				<TangleText value={valueModel.value || 0} onChange={handleChange}
 					min={this.props.min}
 					max={this.props.max}

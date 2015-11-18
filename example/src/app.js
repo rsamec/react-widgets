@@ -49,6 +49,7 @@ var App = React.createClass({
 			data: {
 				firstName: 'Jonh',
 				lastName: 'Smith',
+				wikiImage:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/DARPin4.png/120px-DARPin4.png',
 				options: [{value: 'one', label: 'One'},
 					{value: 'two', label: 'Two'}],
 				pivot: {
@@ -900,11 +901,14 @@ var App = React.createClass({
 						<TabPane eventKey={2} tab='ImageBox'>
 							<WidgetExample widget={Widgets.ImageBox}/>
 						</TabPane>
+						<TabPane eventKey={3} tab='ImageCarousel'>
+							<WidgetExample widget={Widgets.ImageCarousel} dataBinder={dataBinder}/>
+						</TabPane>
 
-						<TabPane eventKey={3} tab='Pivot'>
+						<TabPane eventKey={4} tab='Pivot'>
 							<WidgetExample widget={Widgets.Pivot} dataBinder={dataBinder}/>
 						</TabPane>
-						<TabPane eventKey={4} tab='Flipper'>
+						<TabPane eventKey={5} tab='Flipper'>
 							<WidgetExample widget={Widgets.Flipper}/>
 						</TabPane>
 					</TabbedArea>

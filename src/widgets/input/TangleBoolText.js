@@ -18,9 +18,11 @@ export default class TangleBoolText extends React.Component {
 		var component = valueModel !== undefined && valueModel.value?trueComponent:falseComponent;
 		
 		var style = {display:'inline', color:'darkblue',borderBottom: '1px dashed black'};
+		var tooltip = this.props.tooltip;
+		var className = !!this.props.tooltip?"tangleTooltip":undefined;
 		
 		return (
-			<div style={style} onClick={handleChange}>
+			<div style={style} className={className} title={tooltip} onClick={handleChange}>
                 {component}
 			</div>
 		);

@@ -35,11 +35,13 @@ export default {
 			props: {
 				value: {mode: 'TwoWay'},
 				trueText: 'true condition',
-				falseText: 'false condition'
+				falseText: 'false condition',
+				tooltip:undefined
 			},
 			settings: {
 				fields: {
-					value: {type: 'bindingEditor', settings: {editing: false}}
+					value: {type: 'bindingEditor', settings: {editing: false}},
+					tooltip:{type:'string'}
 				}
 			}
 		}
@@ -52,7 +54,8 @@ export default {
 				max: 100,
 				step: 1,
 				width: 100,
-				pixelDistance: 1
+				pixelDistance: 1,
+				tooltip:undefined
 			},
 			settings: {
 				fields: {
@@ -61,7 +64,8 @@ export default {
 					max:{type:'number'},
 					step:{type:'number'},
 					width:{type:'number'},
-					pixelDistance:{type:'number'}
+					pixelDistance:{type:'number'},
+					tooltip:{type:'string'}
 				}
 			}
 		}
@@ -175,6 +179,48 @@ export default {
 						type: 'select',
 						settings: {options: ['cover', 'fill', 'contain']}
 					}
+				}
+			}
+		}
+	}),
+	ImageCarousel: _.extend(require('./widgets/ImageCarousel'), {
+		metaData: {
+			props: {
+				width:undefined,
+				height:undefined,
+				slides:undefined,
+				settings:{
+					arrows:undefined,
+					autoplay:undefined,
+					autoplaySpeed:undefined,
+					centerMode:undefined,
+					dots:undefined,
+					infinite:undefined,
+					slidesToShow:undefined,
+					slidesToScroll:undefined,
+					variableWidth:undefined,
+					adaptiveHeight:undefined
+				}
+			},
+			settings: {
+				fields: {
+					width:{type:'number'},
+					height:{type:'number'},
+					slides:{type:'bindingEditor'},
+					settings: {
+						fields: {
+							arrows:{type:'boolean'},
+							autoplay:{type:'boolean'},
+							autoplaySpeed:{type:'number'},
+							centerMode:{type:'boolean'},
+							dots:{type:'boolean'},
+							infinite:{type:'boolean'},
+							slidesToShow:{type:'number'},
+							slidesToScroll:{type:'number'},
+							variableWidth:{type:'boolean'},
+							adaptiveHeight:{type:'boolean'},
+						}
+					},
 				}
 			}
 		}
