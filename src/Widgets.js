@@ -190,16 +190,21 @@ export default {
 				height:undefined,
 				slides:undefined,
 				settings:{
+					adaptiveHeight:undefined,
 					arrows:undefined,
 					autoplay:undefined,
 					autoplaySpeed:undefined,
 					centerMode:undefined,
+					currentSlide:undefined,
 					dots:undefined,
+					draggable:undefined,
+					fade:undefined,
 					infinite:undefined,
+					initialSlide:undefined,
+					lazyLoad:undefined,
 					slidesToShow:undefined,
 					slidesToScroll:undefined,
-					variableWidth:undefined,
-					adaptiveHeight:undefined
+					variableWidth:undefined
 				}
 			},
 			settings: {
@@ -209,16 +214,22 @@ export default {
 					slides:{type:'bindingEditor'},
 					settings: {
 						fields: {
+							adaptiveHeight:{type:'boolean'},
 							arrows:{type:'boolean'},
 							autoplay:{type:'boolean'},
 							autoplaySpeed:{type:'number'},
 							centerMode:{type:'boolean'},
+							currentSlide:{type:'number'},
 							dots:{type:'boolean'},
+							draggable:{type:'boolean'},
+							fade:{type:'boolean'},
 							infinite:{type:'boolean'},
+							initialSlide:{type:'number'},
+							lazyLoad:{type:'boolean'},
 							slidesToShow:{type:'number'},
 							slidesToScroll:{type:'number'},
 							variableWidth:{type:'boolean'},
-							adaptiveHeight:{type:'boolean'},
+							
 						}
 					},
 				}
